@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>jpa_ex1</groupId>
+    <artifactId>jpa_ex1</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>jpa_ex1</name>
+    <packaging>pom</packaging>
+
+    <properties>
+        <jarch-version>20.6.0-SNAPSHOT</jarch-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <url>http://maven.dsfweb.com.br/nexus/content/groups/public</url>
+        </repository>
+
+        <repository>
+            <id>jarch</id>
+            <url>http://maven.jarch.com.br/repo</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>Releases</name>
+            <url>http://maven.dsfweb.com.br/nexus/content/repositories/releases</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Snapshots</name>
+            <url>http://maven.dsfweb.com.br/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>br.com.jarch</groupId>
+                <artifactId>jarch</artifactId>
+                <version>${jarch-version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>br.com.jarch</groupId>
+            <artifactId>jarch-apt</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>br.com.jarch</groupId>
+            <artifactId>jarch-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>br.com.dsfnet</groupId>
+            <artifactId>dsfnet-jarch</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>br.com.dsfnet.commons.jms</groupId>
+            <artifactId>siat-lcto-gen-jms</artifactId>
+            <version>0.0.2-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>br.com.dsfnet.commons.jms</groupId>
+            <artifactId>siat-nld-jms</artifactId>
+            <version>0.0.2-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>br.com.dsfnet.commons.jms</groupId>
+            <artifactId>siat-lcto-jms</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext-pdfa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lowagie</groupId>
+            <artifactId>itext</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-envers</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+        </dependency>
+    </dependencies>
+  <modules>
+    <module>jpa_ex1-client</module>
+    <module>jpa_ex1-web</module>
+    <module>jpa_ex1-job</module>
+    <module>jpa_ex1-ws</module>
+  </modules>
+</project>
