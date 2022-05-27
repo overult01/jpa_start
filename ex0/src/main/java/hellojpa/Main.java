@@ -11,7 +11,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		// EntityManagerFactory는 서버 띄울 때 딱 1번을 로딩.(딱 1개만 생성해서 앺,ㄹ리케이션 전체 공유)
+		// EntityManagerFactory는 서버 띄울 때 딱 1번을 로딩.(딱 1개만 생성해서 어플리케이션 전체 공유)
 		EntityManagerFactory emf =
 				Persistence.createEntityManagerFactory("hello");
 		// persistence.xml (jpa 설정파일의 persistence-unit태그의 name속성이 하단의 hello)
