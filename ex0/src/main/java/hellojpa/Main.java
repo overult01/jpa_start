@@ -7,6 +7,7 @@ import javax.persistence.Persistence;
 
 import hellojpa.entity.Member;
 import hellojpa.entity.MemberType;
+import hellojpa.entity.Team;
 
 public class Main {
 
@@ -30,13 +31,28 @@ public class Main {
 		tx.begin();
 		
 		try {
+			
+			// 팀 저장
+			Team team = new Team();
+			team.setName("teamA");
+
+			em.persist(team);
+			
+			// 회원저장 
 			Member member = new Member();
 			// member.setId(100L); // Long 타입은 뒤에 꼭 L을 붙여야.
-			member.setName("안녕하세요.");
-			member.setMemberType(MemberType.ADMIN);
+			member.setName("hello");
+			member.setTeamId(team.getId());
+//			member.setMemberType(MemberType.ADMIN);
 			
 			// member 객체 DB 저장 
 			em.persist(member);
+			
+			// 조회(연관관계가 없어서 직접 하나하나 가져와야 함) -> 객체지향적 x
+			Member findMember = em.find(Member.class, member.getId());
+			Long teamId = findMember.getTeamId();
+			
+			Team findTeam = em.find(Team.class, teamId);
 			
 			// 커밋
 			tx.commit();

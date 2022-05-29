@@ -19,8 +19,12 @@ public class Member {
 	
 	private int age;
 	
-	@Enumerated(EnumType.STRING) // ENUM 쓸 때. 현업에서 무조건 STRING 써야(글자가 들어감). 
-	private MemberType memberType;
+	// 참조 대신에 외래키를 그대로 넣은 경우 
+	@Column(name = "TEAM_ID")
+	private Long teamId;
+	
+//	@Enumerated(EnumType.STRING) // ENUM 쓸 때. 현업에서 무조건 STRING 써야(글자가 들어감). 
+//	private MemberType memberType;
 	
 	// jpa는 기본적으로 getter, setter 와 생성자 기반으로 동작 
 	public Long getId() {
@@ -41,10 +45,16 @@ public class Member {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public MemberType getMemberType() {
-		return memberType;
+//	public MemberType getMemberType() {
+//		return memberType;
+//	}
+//	public void setMemberType(MemberType memberType) {
+//		this.memberType = memberType;
+//	}
+	public Long getTeamId() {
+		return teamId;
 	}
-	public void setMemberType(MemberType memberType) {
-		this.memberType = memberType;
+	public void setTeamId(Long teamId) {
+		this.teamId = teamId;
 	}
 }
