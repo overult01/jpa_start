@@ -9,6 +9,7 @@ public class Member {
 	@Id
 	private Long id;
 	private String name;
+	private int age;
 	
 	// jpa는 기본적으로 getter, setter 와 생성자 기반으로 동작 
 	public Long getId() {
@@ -23,6 +24,11 @@ public class Member {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
 	
 }

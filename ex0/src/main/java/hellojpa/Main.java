@@ -11,7 +11,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		// EntityManagerFactory는 서버 띄울 때 딱 1번을 로딩.(딱 1개만 생성해서 어플리케이션 전체 공유)
+		// EntityManagerFactory는 서버 띄울 때 딱 1번을 로딩.(딱 1개만 생성해서 웹 어플리케이션 전체 공유)
 		EntityManagerFactory emf =
 				Persistence.createEntityManagerFactory("hello");
 		// persistence.xml (jpa 설정파일의 persistence-unit태그의 name속성이 하단의 hello)
@@ -19,7 +19,7 @@ public class Main {
 		// 그리고 실제 유저가 접근해서 비즈니스 로직을 태울 때 마다 팩토리에서 EntityManager라는 것 꺼내서 사용.
 		// EntityManager가 흔히 생각하는 jpa 그 자체.
 		// EntityManager는 쓰레드간에 공유하면 x.(사용후 버려야)
-		// 실제 웹 어플리케이션에선 고객의 요청이 들어올 때 마다 EntityManager 생성 
+		// 실제 웹 어플리케이션에서 고객의 요청이 들어올 때 마다 EntityManager 생성 
 		EntityManager em = emf.createEntityManager();
 		
 		// EntityManager 로부터 트랜잭션 얻기
