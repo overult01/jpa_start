@@ -7,6 +7,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Member {
@@ -19,9 +21,13 @@ public class Member {
 	
 	private int age;
 	
-	// 참조 대신에 외래키를 그대로 넣은 경우 
-	@Column(name = "TEAM_ID")
-	private Long teamId;
+	@ManyToOne
+	@JoinColumn(name = "TEAM_ID") // TEAM_ID 컬럼이 pk, fk 관계 
+	private Team team;
+	
+//	// 참조 대신에 외래키를 그대로 넣은 경우 
+//	@Column(name = "TEAM_ID")
+//	private Long teamId;
 	
 //	@Enumerated(EnumType.STRING) // ENUM 쓸 때. 현업에서 무조건 STRING 써야(글자가 들어감). 
 //	private MemberType memberType;
@@ -51,10 +57,10 @@ public class Member {
 //	public void setMemberType(MemberType memberType) {
 //		this.memberType = memberType;
 //	}
-	public Long getTeamId() {
-		return teamId;
+	public Team getTeam() {
+		return team;
 	}
-	public void setTeamId(Long teamId) {
-		this.teamId = teamId;
+	public void setTeam(Team team) {
+		this.team = team;
 	}
 }

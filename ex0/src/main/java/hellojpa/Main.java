@@ -42,7 +42,8 @@ public class Main {
 			Member member = new Member();
 			// member.setId(100L); // Long 타입은 뒤에 꼭 L을 붙여야.
 			member.setName("hello");
-			member.setTeamId(team.getId());
+//			member.setTeamId(team.getId());
+			member.setTeam(team);
 //			member.setMemberType(MemberType.ADMIN);
 			
 			// member 객체 DB 저장 
@@ -50,9 +51,11 @@ public class Main {
 			
 			// 조회(연관관계가 없어서 직접 하나하나 가져와야 함) -> 객체지향적 x
 			Member findMember = em.find(Member.class, member.getId());
-			Long teamId = findMember.getTeamId();
+//			Long teamId = findMember.getTeamId();
+//			Team findTeam = em.find(Team.class, teamId);
 			
-			Team findTeam = em.find(Team.class, teamId);
+			// 객체 지향 모델링 
+			Team findTeam = findMember.getTeam();
 			
 			// 커밋
 			tx.commit();
