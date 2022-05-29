@@ -18,8 +18,9 @@
 		<property name="hibernate.format_sql" value="true" />
 		<property name="hibernate.use_sql_comments" value="true" /> 
 		<property name="hibernate.id.new_generator_mappings" value="true" />
-		
-		<!--<property name="hibernate.hbm2ddl.auto" value="create" />--> 
+
+		<!-- create 옵션: 기존 테이블 삭제(drop) 후 스키마 생성(create)  -->
+		<property name="hibernate.hbm2ddl.auto" value="create" />
 	</properties>
 	</persistence-unit> 
 </persistence>
