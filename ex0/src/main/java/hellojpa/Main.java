@@ -1,5 +1,8 @@
 package hellojpa;
 
+import java.util.Iterator;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -64,6 +67,12 @@ public class Main {
 			Team findTeam = findMember.getTeam();
 			
 			findTeam.getName();
+			
+			// 양방향 매핑 조회 
+			List<Member> members = findTeam.getMembers();
+			for (Member member1 : members) {
+				System.out.println("member1 = " + member1);
+			}
 			
 			// 커밋
 			tx.commit();
