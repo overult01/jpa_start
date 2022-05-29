@@ -6,6 +6,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import hellojpa.entity.Member;
+import hellojpa.entity.MemberType;
 
 public class Main {
 
@@ -32,7 +33,8 @@ public class Main {
 			Member member = new Member();
 			member.setId(100L); // Long 타입은 뒤에 꼭 L을 붙여야.
 			member.setName("안녕하세요.");
-
+			member.setMemberType(MemberType.ADMIN);
+			
 			// member 객체 DB 저장 
 			em.persist(member);
 			
