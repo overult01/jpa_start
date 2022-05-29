@@ -4,15 +4,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Member {
 
-	@Id
+	@Id @GeneratedValue(strategy = GenerationType.AUTO) // @GeneratedValue(strategy = GenerationType.AUTO):auto로 하면 방언에 맞는 값이 자동으로 생성된다. ex.mysql - auto increment / oracle - 시퀀스 
 	private Long id;
 	
-	@Column(name = "USERNAME") // db에서의 컬럼명 
+	@Column(name = "USERNAME", nullable = false, length = 20) // db에서의 컬럼명 
 	private String name; // 자바 객체에서 필드명 
 	
 	private int age;

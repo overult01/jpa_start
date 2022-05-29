@@ -31,7 +31,7 @@ public class Main {
 		
 		try {
 			Member member = new Member();
-			member.setId(100L); // Long 타입은 뒤에 꼭 L을 붙여야.
+			// member.setId(100L); // Long 타입은 뒤에 꼭 L을 붙여야.
 			member.setName("안녕하세요.");
 			member.setMemberType(MemberType.ADMIN);
 			
