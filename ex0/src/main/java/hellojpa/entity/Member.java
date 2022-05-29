@@ -1,5 +1,6 @@
 package hellojpa.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -8,7 +9,9 @@ public class Member {
 
 	@Id
 	private Long id;
-	private String name;
+	
+	@Column(name = "USERNAME") // db에서의 컬럼명 
+	private String name; // 자바 객체에서 필드명 
 	private int age;
 	
 	// jpa는 기본적으로 getter, setter 와 생성자 기반으로 동작 
