@@ -49,6 +49,12 @@ public class Main {
 			// member 객체 DB 저장 
 			em.persist(member);
 			
+			// DB에 쿼리를 다 보내기 
+			em.flush();
+			
+			// 캐시를 깨끗하게 지움 
+			em.clear();
+			
 			// 조회(연관관계가 없어서 직접 하나하나 가져와야 함) -> 객체지향적 x
 			Member findMember = em.find(Member.class, member.getId());
 //			Long teamId = findMember.getTeamId();
@@ -56,6 +62,8 @@ public class Main {
 			
 			// 객체 지향 모델링 
 			Team findTeam = findMember.getTeam();
+			
+			findTeam.getName();
 			
 			// 커밋
 			tx.commit();

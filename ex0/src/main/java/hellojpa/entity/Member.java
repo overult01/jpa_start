@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +22,7 @@ public class Member {
 	
 	private int age;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY) // FetchType.LAZY: 지연로딩. 디폴트는 eager(조인하는)지만 지연로딩을 권장.
 	@JoinColumn(name = "TEAM_ID") // TEAM_ID 컬럼이 pk, fk 관계 
 	private Team team;
 	
