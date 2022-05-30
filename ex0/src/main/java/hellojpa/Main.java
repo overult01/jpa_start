@@ -46,7 +46,15 @@ public class Main {
 			// member.setId(100L); // Long 타입은 뒤에 꼭 L을 붙여야.
 			member.setName("hello");
 //			member.setTeamId(team.getId());
+			
+			// 양방향 매핑: 양쪽 다 세팅 
+			
+			// 1. 연관관계 주인에 값 설정 
 			member.setTeam(team);
+			
+			// 2. 무시 
+			team.getMembers().add(member);
+			
 //			member.setMemberType(MemberType.ADMIN);
 			
 			// member 객체 DB 저장 
